@@ -36,7 +36,7 @@ const Browse = ({ games, genres }) => {
     const [open, setOpen] = useState(true);
 
     useEffect(() => {
-        setItems([]);
+        addToCart
     });
 
     const handleGenre = (e) => {

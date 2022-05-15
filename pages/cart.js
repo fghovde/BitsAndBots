@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Layout from '../components/layout/Layout';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export default function Cart() {
   const [items, setItems] = useLocalStorage('cart', []);
@@ -15,13 +16,13 @@ export default function Cart() {
     list.splice(index, 1);
     setItems([...list]);
   }
-  
+
   const handleCheckOut = e => {
     router.push('/checkout');
   }
 
   useEffect(() => {
-    setItems([]);
+    handleCheckOut
   });
 
 

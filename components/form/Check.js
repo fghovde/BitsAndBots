@@ -20,7 +20,7 @@ const Check = () => {
     }
 
     useEffect(() => {
-      setItems([]);
+      handleClick
     });
 
 /*
