@@ -1,0 +1,24 @@
+.layout {
+    @apply
+
+    text-skin-base
+    font-body
+    h-auto
+    min-h-screen;
+    &--primary {
+        @apply
+        bg-skin-base;
+    }
+    &__container {
+        @apply
+        px-4
+        pb-4
+        mx-auto
+        2xl:container;
+        &--main {
+            @apply
+            h-auto
+            min-h-full;
+        }
+    }
+}

@@ -1,0 +1,59 @@
+.forms {
+    @apply
+    text-sm
+    text-skin-base;
+    &__input {
+        @apply
+        mb-3
+        rounded-md
+        w-full
+        p-2.5
+        bg-skin-field
+    }
+    &__text {
+        @apply
+        py-2;
+        &--error {
+            @apply
+            -mt-3
+            font-bold
+            text-skin-warning;
+        }
+        &--success {
+            @apply
+            h-48
+            grid
+            items-center
+            text-center
+            align-middle
+            font-bold
+            text-skin-success;
+        }
+    }
+    &__label {
+        @apply
+        block
+        mb-2
+        font-medium
+        text-skin-muted;
+    }
+    &__submit {
+        @apply
+        w-full
+        mt-2
+        cursor-pointer
+        focus:ring-4
+        focus:outline-none
+        font-bold
+        rounded-3xl
+        px-5
+        py-2.5
+        text-center;
+        &--primary {
+            @apply
+            text-skin-inverted
+            bg-skin-success
+            hover:bg-skin-success-hover
+        }
+    }
+}

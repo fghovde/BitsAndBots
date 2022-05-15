@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;900&family=Recursive:wght@700&display=swap');
+@import 'partials/_tailwind.css';
+@import 'partials/_layout';
+@import 'partials/_navbar.css';
+@import 'partials/_menu.css';
+@import 'partials/_tabs.css';
+@import 'partials/_forms.css';
+@import 'partials/_loader.css';
+@import 'partials/_imageslider.css';
+@import 'partials/_cards.css';
+
+@layer base {
+    :root {
+        --color-text-base: #fff; {/*lys tekst*/}
+        --color-text-muted: #eee; {/*mid tekst*/}
+        --color-text-inverted: #212121; {/*mørk tekst*/}
+        --color-text-success: #15DDCF;
+        --color-text-success-hover: #00FFED; {/*lys grønn*/}
+        --color-text-warning: #F687FD;
+        --color-fill: #373737; {/*bokser*/}
+        --color-fill-field: #5C5C5C; {/*input*/}
+        --color-fill-base: #212121; {/*bakgrunn*/}
+        --color-fill-success: #15DDCF; {/*grønn*/}
+        --color-fill-success-hover: #00FFED; {/*lys grønn*/}
+        --color-fill-warning: #F687FD; {/*rosa            '': 'var()',            */}
+        --color-button-accent: #fff;
+        --color-button-accent-hover: #eee;
+        --color-button-muted: #000;
+        --color-border-base: #fff;
+        --color-border-success: #15DDCF;
+    }
+}

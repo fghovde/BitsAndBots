@@ -1,0 +1,37 @@
+.menu {
+    @apply
+    z-40
+    w-full
+    absolute
+    grid
+    top-0
+    left-0
+    drop-shadow-lg
+    mt-20
+    -mb-20;
+    &--hidden {
+        @apply
+        hidden;
+    }
+    &__container {
+        @apply
+        mx-auto
+        w-full
+        2xl:container;
+    }
+    &__items {
+        @apply
+        flex
+        text-xl
+        font-medium
+        py-4
+        border-l-4
+        border-transparent
+        hover:border-skin-success
+        bg-skin-fill;
+    }
+    &__icons {
+        @apply
+        mx-4;
+    }
+}

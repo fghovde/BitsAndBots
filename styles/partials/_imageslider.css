@@ -1,0 +1,30 @@
+.imageslider {
+    @apply
+    relative
+    h-screen
+    flex
+    flex-nowrap
+    overflow-x-hidden
+    bg-skin-base
+    text-skin-base
+    font-body
+    min-h-screen
+    bg-cover
+    bg-center;
+    background-image:url('/images/bg/bg-7.jpg');
+    &__items {
+        @apply
+        h-full
+        w-screen
+        flex-shrink-0
+        bg-center
+        bg-cover
+        ease-in-out
+        transition-all
+        duration-700;
+    }
+    &__children {
+        @apply
+        absolute;
+    }
+}

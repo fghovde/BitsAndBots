@@ -1,0 +1,16 @@
+.loader {
+    &__container {
+        @apply
+        grid place-items-center;
+        height: 90vh;
+    }
+    &__icon {
+        @apply
+        animate-spin;
+    }
+    &__text {
+        @apply
+        mt-5
+        text-center;
+    }
+}
