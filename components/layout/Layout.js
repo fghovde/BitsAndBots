@@ -1,6 +1,6 @@
 {/* import Footer from './footer' */}
 import Navbar from '../navbar/Navbar';
-import ImageSlider from '../slider/Imageslider';
+import ImageSlider from '../slider/ImageSlider';
 
 export default function Layout({ children, home }) {
     return (
