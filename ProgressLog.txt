@@ -1,7 +1,0 @@
-Production
-Day 1 24.03.22:
-- Create next app
-- Layout component
-
-- AppContext wrapper
-- AppReducer (initialState variable and an AppReducer arrow function)
