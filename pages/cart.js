@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 
 export default function Cart() {
   const [items, setItems] = useLocalStorage('cart', []);
-  const itemsInCart = items.length > 0;
+  const itemsInCart = items.length != 0;
   const router = useRouter();
 
   const handleClick = ind => event => {

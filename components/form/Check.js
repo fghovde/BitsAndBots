@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import { useLocalStorage } from '../../hooks/useLocalStorage';
-import { useEffect } from 'react/cjs/react.production.min';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
@@ -18,18 +17,6 @@ const Check = () => {
       setItems([]);
       router.push('/browse');
     }
-
-    useEffect(() => {
-      handleClick
-    });
-
-/*
-          pattern: {
-            value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-            message: 'Fill in valid email address.'
-          },
-*/
-
 
 
     return (

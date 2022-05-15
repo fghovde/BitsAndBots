@@ -8,7 +8,6 @@ export default function Checkout() {
   const [items, setItems] = useLocalStorage('cart', []);
   const numberOfItems = items.length;
 
-
   return (
     <>
     <Layout>
@@ -20,7 +19,7 @@ export default function Checkout() {
       </Head>
       <div className='max-w-screen-sm mx-auto'>
         <h2 className='py-4 text-xl font-bold'>
-          Checkout
+          Checkout 
         </h2>
         <p>Games in the cart: <span className='font-bold font-heading'>{numberOfItems}</span></p><br />
         <Check />
