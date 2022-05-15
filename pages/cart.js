@@ -22,7 +22,8 @@ export default function Cart() {
   }
 
   useEffect(() => {
-    handleCheckOut
+    handleCheckOut,
+    handleClick
   });
 
 
