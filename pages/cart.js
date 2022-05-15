@@ -15,9 +15,14 @@ export default function Cart() {
     list.splice(index, 1);
     setItems([...list]);
   }
+  
   const handleCheckOut = e => {
     router.push('/checkout');
   }
+
+  useEffect(() => {
+    setItems([]);
+  });
 
 
   return (

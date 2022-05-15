@@ -35,6 +35,10 @@ const Browse = ({ games, genres }) => {
     const [items, setItems] = useLocalStorage('cart', []);
     const [open, setOpen] = useState(true);
 
+    useEffect(() => {
+        setItems([]);
+    });
+
     const handleGenre = (e) => {
         setCurrentGenre(e.target.name);
     }

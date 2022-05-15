@@ -49,7 +49,9 @@ export const getStaticProps = async (context) => {
 
 const Details = ({ game, cover, screenshots }) => {
     const [items, setItems] = useLocalStorage('cart', []);
-
+    useEffect(() => {
+        setItems([]);
+    });
     const list = items;
 
     const addToCart = (e) => {
