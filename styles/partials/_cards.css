@@ -10,14 +10,13 @@
     text-white;
     &__text {
         @apply
-        font-bold;
+        text-white;
         &--title {
             @apply
             -mt-1
             mb-1
             font-bold
-            tracking-tight
-            text-white;
+            tracking-tight;
         }
     }
     &__button {
