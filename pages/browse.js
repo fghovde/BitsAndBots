@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { BASE_URL, CLIENT_ID, ACCESS_TOKEN } from '../constants/constants';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';

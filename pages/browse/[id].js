@@ -2,6 +2,7 @@
 import { BASE_URL, CLIENT_ID, ACCESS_TOKEN } from '../../constants/constants';
 import { igdbSettings } from '../../lib/igdbSettings';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
+import { useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import Loader from '../../components/common/Loader';
@@ -81,7 +82,7 @@ const Details = ({ game, cover, screenshots }) => {
             <div key={game.id} className="grid grid-row">
                 <div className='grid sm:grid-flow-col gap-4 max-w-screen-md mx-auto sm:p-4 bg-skin-base'>
                     <div className='sm:max-w-xs max-w-full'>
-                        { cover !== null &&
+                        {cover !== null &&
                         <Image
                             src={'https://images.igdb.com/igdb/image/upload/t_cover_big/' + cover.image_id + '.jpg'}
                             width={cover.width}
