@@ -1,0 +1,56 @@
+.filter {
+    &__button {
+        @apply
+        bg-skin-success
+        p-3
+        rounded-3xl
+        w-full
+        font-bold
+        hover:bg-skin-success-hover;
+        &--open {
+            @apply
+            rounded-b-none
+            hover:bg-skin-success;
+        }
+    }
+    &__icon {
+        @apply
+        inline-flex
+        mx-2;
+        &--open {
+            @apply
+            transform
+            rotate-180;
+        }
+    }
+    &__item {
+        @apply
+        font-bold
+        tracking-wide
+        gap-4
+        text-sm
+        lg:text-xs
+        p-2
+        bg-skin-base
+        hover:bg-skin-fill
+        rounded-3xl;
+    }
+    &__container {
+        @apply
+        grid
+        xl:grid-flow-col
+        xl:grid-cols-none
+        md:grid-cols-2
+        mb-4
+        bg-skin-success
+        gap-1
+        p-3
+        pt-0
+        rounded-3xl
+        rounded-t-none;
+        &--hidden {
+            @apply
+            hidden;
+        }
+    }
+}

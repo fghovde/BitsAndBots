@@ -6,7 +6,11 @@ import Check from '../components/form/Check';
 
 export default function Checkout() {
   const [items, setItems] = useLocalStorage('cart', []);
-  const numberOfItems = items.length;
+  let numberOfItems = 0;
+
+  if (items) {
+    numberOfItems = items.length;
+  }
 
   return (
     <>

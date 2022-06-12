@@ -19,8 +19,7 @@ export default function Home() {
         <meta name='keywords' content='game, games, video, shop, store, buy, pc, xbox, nintendo, switch, ps, playstation, microsoft' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-    <div className='min-h-screen w-screen backdrop-blur-lg backdrop-brightness-50'>
-      <div className='layout'>
+      <div className='layout layout--index'>
         {loggedIn ?
         (
         <div className='container mx-auto px-4'>
@@ -61,7 +60,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
   </Layout>
   )
 }

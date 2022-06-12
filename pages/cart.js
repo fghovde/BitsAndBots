@@ -7,7 +7,8 @@ import { useEffect } from 'react';
 
 export default function Cart() {
   const [items, setItems] = useLocalStorage('cart', []);
-  const itemsInCart = items.length != 0;
+  // console.log(items.length);
+  const itemsInCart = items && items.length;
   const router = useRouter();
 
   const handleClick = ind => event => {
@@ -21,10 +22,18 @@ export default function Cart() {
     router.push('/checkout');
   }
 
-  useEffect(() => {
-    handleCheckOut,
-    handleClick
-  });
+
+// run once on load
+//  useEffect(() => {
+//    if (localStorage.getItem('cart')) {
+//      setItems(JSON.parse(localStorage.getItem('cart')))
+//    }
+//   }, []);
+//* run every time item state changes
+//  useEffect(() => {
+//    setItems(JSON.parse(localStorage.getItem('cart')))
+//  }, [items]);
+
 
 
   return (
@@ -49,7 +58,6 @@ export default function Cart() {
               {item.Name}
             </span>
             <button className='text-sm p-2 hover:bg-skin-warning rounded-r-lg col-span-2 sm:col-span-1'
-              key={item.id}
               onClick={e => handleClick(item)(e)}>
               <img className='inline-flex' src='/gfx/icons/delete.svg' width='24px' height='24px' alt='Delete' />
             </button>

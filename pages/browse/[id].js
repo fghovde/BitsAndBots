@@ -41,23 +41,19 @@ export const getStaticProps = async (context) => {
 
     return {
         props: {
-            game: data[0],
-            cover: data[0].cover || null,
-            screenshots: data[0].screenshots || null,
+            game: data[0] || null,
         }
     }
 }
 
-const Details = ({ game, cover, screenshots }) => {
+const Details = ({ game }) => {
     const [items, setItems] = useLocalStorage('cart', []);
-    useEffect(() => {
-        addToCart
-    });
+
     const list = items;
-    const gameCover = cover;
 
     const addToCart = (e) => {
         const id = list.length + e.target.id;
+        e.currentTarget.style = 'background: #F687FD;';
         setItems(
             [
                 ...list,
@@ -76,20 +72,30 @@ const Details = ({ game, cover, screenshots }) => {
         <Layout>
             <Head>
                 <title>{game.name} | Bits&Bots</title>
-                <meta name='description' content='Find your next game today!' />
+                <meta name='description' content={game.summary} />
                 <meta name='keywords' content='game, games, video, shop, store, buy, pc, xbox, nintendo, switch, ps, playstation, microsoft' />
                 <link rel='icon' href='/favicon.ico' />
             </Head>
-            <div key={game.id} className="grid grid-row">
-                <div className='grid sm:grid-flow-col gap-4 max-w-screen-md mx-auto sm:p-4 bg-skin-base'>
+            <div key={game.id} className="layout__grid">
+                <div className='layout__browse'>
                     <div className='sm:max-w-xs max-w-full'>
-                        {gameCover !== null &&
+                        {game.cover !== undefined ? (
                         <Image
-                            src={'https://images.igdb.com/igdb/image/upload/t_cover_big/' + cover.image_id + '.jpg'}
-                            width={cover.width}
-                            height={cover.height}
-                            alt={game.name}>
+                            src={'https://images.igdb.com/igdb/image/upload/t_cover_big/' + game.cover.image_id + '.jpg'}
+                            width={game.cover.width}
+                            height={game.cover.height}
+                            alt={game.name}
+                            key={game.cover.image_id}>
                         </Image>
+                         ) : (
+                        <Image
+                            className='cards__image'
+                            src={coverNa}
+                            width='264'
+                            height='352'
+                            alt='No cover available'>
+                        </Image>
+                            )
                         }
                         <button
                             className='text-skin-inverted bg-skin-success mt-2 p-3 rounded-3xl w-full font-bold hover:bg-skin-success-hover'
@@ -109,23 +115,28 @@ const Details = ({ game, cover, screenshots }) => {
                         <h2 className='text-3xl font-heading font-bold pb-2'>{game.name}</h2>
                         <p className='pb-4'>{game.summary}</p>
                         <div className='grid grid-cols-2 gap-2 w-full max-w-screen-md mx-auto '>
-                        {screenshots !== null &&
+                        {game.screenshots !== undefined ? (
                         <>
-                        {screenshots
-                        .map(image => (
-                            <>
-                            <div key={image.id} className="w-full rounded-lg min-h-fit flex h-28">
-                                <Image
-                                src={'https://images.igdb.com/igdb/image/upload/t_screenshot_med/' + `${image.image_id}` + '.jpg'}
-                                width={cover.width}
-                                height={cover.height}
-                                objectFit='contain'
-                                alt={game.name}>
-                                </Image>
-                            </div>
-                            </>
-                        ))}
+                            {game.screenshots
+                            .map(image => (
+                                <>
+                                <div key={image.id} className="w-full rounded-lg min-h-fit flex h-28">
+                                    <Image
+                                    src={'https://images.igdb.com/igdb/image/upload/t_screenshot_med/' + `${image.image_id}` + '.jpg'}
+                                    width={game.cover.width}
+                                    height={game.cover.height}
+                                    objectFit='contain'
+                                    alt={game.name}>
+                                    </Image>
+                                </div>
+                                </>
+                            ))}
                         </>
+                        ) : (
+                        <>
+                            <p>No screenshots.</p>
+                        </>
+                        )
                         }
                         </div>
                     </div>

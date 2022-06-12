@@ -35,9 +35,9 @@ const Browse = ({ games, genres }) => {
     const [items, setItems] = useLocalStorage('cart', []);
     const [open, setOpen] = useState(true);
 
-    useEffect(() => {
-        addToCart
-    });
+  //  useEffect(() => {
+  //      useLocalStorage
+  //  }, [items]);
 
     const handleGenre = (e) => {
         setCurrentGenre(e.target.name);
@@ -48,6 +48,7 @@ const Browse = ({ games, genres }) => {
 
     const addToCart = (e) => {
         // items.includes(e.target.name)
+        e.currentTarget.style = 'background-color: #F687FD;';
         const id = list.length + e.target.id;
         setItems(
             [
@@ -60,15 +61,6 @@ const Browse = ({ games, genres }) => {
         );
     }
 
-    const handleClick = ind => e => {
-        // if target id is in array then
-        const list = [...items];
-        const index = list.indexOf(ind);
-        list.splice(index, 1);
-        setItems([...list]);
-    }
-
-
     return (
         <>
         <Layout>
@@ -78,14 +70,14 @@ const Browse = ({ games, genres }) => {
             <meta name='keywords' content='game, games, video, shop, store, buy, pc, xbox, nintendo, switch, ps, playstation, microsoft' />
             <link rel='icon' href='/favicon.ico' />
         </Head>
-        <div open={open} setOpen={setOpen}> {/* accordion */}
+        <div open={open} setOpen={setOpen}>
             <div className='text-skin-inverted' onClick={() => {
                 setOpen(!open)
                 }}>
                 {open ? (
-                <button className='bg-skin-success p-3 rounded-3xl w-full font-bold hover:bg-skin-success-hover'>
+                <button className='filter__button'>
                     <img
-                        className='inline-flex mx-2'
+                        className='filter__icon'
                         src='/gfx/icons/category-inv.svg'
                         width='20px'
                         height='20px'
@@ -93,9 +85,9 @@ const Browse = ({ games, genres }) => {
                     Select genres
                 </button>
                 ) : (
-                <button className='bg-skin-success p-3 rounded-3xl rounded-b-none w-full font-bold'>
+                <button className='filter__button filter__button--open'>
                     <img
-                        className='inline-flex mx-2 transform rotate-180'
+                        className='filter__icon filter__icon--open'
                         src='/gfx/icons/category-inv.svg'
                         width='20px'
                         height='20px'
@@ -104,7 +96,7 @@ const Browse = ({ games, genres }) => {
                 </button>
                 )}
             </div>
-            <div className={open ? 'hidden' : 'grid xl:grid-flow-col xl:grid-cols-none md:grid-cols-2 mb-4 bg-skin-success gap-1 p-3 pt-0 rounded-3xl rounded-t-none'} onClick={() => {
+            <div className={open ? 'filter__container--hidden' : 'filter__container'} onClick={() => {
                 setOpen(!open)
                 }}>
                 {unique
@@ -113,7 +105,7 @@ const Browse = ({ games, genres }) => {
                         type='button'
                         key={unique}
                         name={unique}
-                        className='font-bold tracking-wide gap-4 text-white text-sm lg:text-xs p-2 bg-skin-base hover:bg-skin-fill rounded-3xl'
+                        className='filter__item'
                         onClick={handleGenre}>
                     {unique}
                     </button>
@@ -134,8 +126,8 @@ const Browse = ({ games, genres }) => {
                         name={game.name}>
                         {/* {inCart ? ('+') : ('-')} */}
                     </button>
-                    { game.cover !== undefined ? (
-                    <a href={'/browse/' + game.id}>
+                    { game.cover ? (
+                    <a href={'/browse/' + game.id} key={game.id}>
                         <Image
                             className='cards__image'
                             src={'https://images.igdb.com/igdb/image/upload/t_cover_med/' + game.cover.image_id + '.jpg'}

@@ -8,6 +8,7 @@
 @import 'partials/_loader.css';
 @import 'partials/_imageslider.css';
 @import 'partials/_cards.css';
+@import 'partials/_filter.css';
 
 @layer base {
     :root {

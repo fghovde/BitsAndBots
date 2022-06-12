@@ -1,6 +1,5 @@
 .layout {
     @apply
-
     text-skin-base
     font-body
     h-auto
@@ -8,6 +7,27 @@
     &--primary {
         @apply
         bg-skin-base;
+    }
+    &--index {
+        @apply
+        min-h-screen
+        w-screen
+        backdrop-blur-lg
+        backdrop-brightness-50;
+    }
+    &__browse {
+        @apply
+        grid
+        sm:grid-flow-col
+        gap-4
+        max-w-screen-md
+        mx-auto
+        sm:p-4
+        bg-skin-base;
+    }
+    &__grid {
+        @apply
+        grid;
     }
     &__container {
         @apply
